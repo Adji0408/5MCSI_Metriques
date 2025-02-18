@@ -31,6 +31,38 @@ def mongraphique():
 @app.route('/histogramme/')
 def histogramme():
     return render_template('histogramme.html')
+@app.route('/commits/')
+def commits():
+    # Récupérer les commits de GitHub via l'API
+    response = requests.get('https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits')
+    commits_data = response.json()
+
+    # Dictionnaire pour stocker la quantité de commits par minute
+    commit_minutes = {}
+
+    # Extraire la minute de chaque commit
+    for commit in commits_data:
+        date_string = commit['commit']['author']['date']
+        minute = extract_minutes(date_string)
+        
+        if minute not in commit_minutes:
+            commit_minutes[minute] = 1
+        else:
+            commit_minutes[minute] += 1
+
+    # Convertir les données en format utilisable par Google Charts
+    results = [{'minute': minute, 'commits': count} for minute, count in commit_minutes.items()]
+    
+    # Retourner les données sous forme de JSON
+    return jsonify(results=results)
+
+@app.route('/extract-minutes/<date_string>')
+def extract_minutes(date_string):
+    # Convertir la date en objet datetime
+    date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
+    # Extraire la minute de l'heure
+    minutes = date_object.minute
+    return minutes
 
 if __name__ == "__main__":
     app.run(debug=True)
