@@ -34,7 +34,10 @@ def histogramme():
 @app.route('/commits/')
 def commits():
     # Récupérer les commits de GitHub via l'API
-    response = requests.get('https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits')
+    headers = {
+    'Authorization': 'token d783834deed74d5c93c93358023076d6'
+}
+response = requests.get('https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits', headers=headers)
     commits_data = response.json()
 
     # Dictionnaire pour stocker la quantité de commits par minute
