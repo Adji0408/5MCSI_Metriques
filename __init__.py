@@ -38,6 +38,7 @@ def commits():
     'Authorization': 'token d783834deed74d5c93c93358023076d6'
 }
 response = requests.get('https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits', headers=headers)
+print(response.status_code, response.text)
     commits_data = response.json()
 
     # Dictionnaire pour stocker la quantité de commits par minute
