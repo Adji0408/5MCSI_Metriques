@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contactez-nous</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f4f7;
+      }
+
+      header {
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .container {
+        width: 80%;
+        margin: 30px auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      h2 {
+        color: #333;
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      input,
+      textarea {
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        width: 100%;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      button {
+        padding: 12px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .social-icons {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .social-icons a {
+        margin: 0 10px;
+        color: #333;
+        font-size: 30px;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: #4caf50;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Nous Contacter</h1>
+      <p>Nous serions ravis de recevoir votre message !</p>
+    </header>
+
+    <div class="container">
+      <h2>Formulaire de Contact</h2>
+      <form method="POST" action="">
+        <!-- Champ pour le prénom -->
+        <label for="first-name">Prénom :</label>
+        <input type="text" id="first-name" name="first_name" required placeholder="Entrez votre prénom" />
+
+        <!-- Champ pour le nom -->
+        <label for="last-name">Nom :</label>
+        <input type="text" id="last-name" name="last_name" required placeholder="Entrez votre nom" />
+
+        <!-- Champ pour l'email -->
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required placeholder="Entrez votre adresse e-mail" />
+
+        <!-- Champ pour le message -->
+        <label for="message">Votre message :</label>
+        <textarea id="message" name="message" required placeholder="Entrez votre message ici..."></textarea>
+
+        <!-- Bouton de soumission -->
+        <button type="submit">Envoyer</button>
+      </form>
+
+      <div class="social-icons">
+        <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+  </body>
+</html>
